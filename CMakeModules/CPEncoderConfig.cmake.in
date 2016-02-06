@@ -1,0 +1,30 @@
+SET(CPENCODER_VERSION @CPEncoder_VERSION@)
+
+@PACKAGE_INIT@
+
+SET(CPEncoder_LIBRARIES ColorPrecision)
+
+
+# We're coming from a build tree -- include all of the targets
+# from the project and try to make sure that our includes are set properly
+INCLUDE("${CMAKE_CURRENT_LIST_DIR}/CPEncoderTargets.cmake")
+
+FOREACH(LIB ${CPEncoder_LIBRARIES})
+  STRING(REPLACE "CPEncoder" "" DIR "${LIB}")
+   message("true")
+  SET(CURRENT_DIR "@CPEncoder_SOURCE_DIR@/${DIR}/include")
+  IF( EXISTS "${CURRENT_DIR}/" )
+    message("true")
+    SET(CPEncoder_INCLUDE_DIRS ${CPEncoder_INCLUDE_DIRS} ${CURRENT_DIR})
+  ENDIF()
+
+  SET(CURRENT_DIR "@CPEncoder_BINARY_DIR@/${DIR}/include")
+  IF( EXISTS "${CURRENT_DIR}/" )
+    SET(CPEncoder_INCLUDE_DIRS ${CPEncoder_INCLUDE_DIRS} ${CURRENT_DIR})
+  ENDIF()
+
+ENDFOREACH()
+
+SET(CPEncoder_EXECUTABLES tc compare decomp)
+
+
