@@ -13,6 +13,7 @@
 // Refer to "Real-Time DXT Compression" by J.M.P. van Waveren for a more thorough discussion of the
 // algorithms used in this code.
 
+#include "CPEncoder/CPCompressor.h"
 #include <algorithm>
 #include <cassert>
 #include <cstdlib>

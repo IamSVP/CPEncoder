@@ -43,12 +43,16 @@
 SET( LIBRARY_HEADERS
   "include/CPEncoder/CPCompressor.h"
   "include/CPEncoder/TexCompTypes.h"
+  "include/CPEncoder/stb_image.h"
+  "include/CPEncoder/stb_image_write.h"
 )
 
 SET( SOURCES
   "src/Compressor.cpp"
   "src/Decompressor.cpp"
 )
+
+INCLUDE_DIRECTORIES(${CPEncoder_SOURCE_DIR}/ColorPrecision/include)
 
 SET( HEADERS
 ${LIBRARY_HEADERS}
