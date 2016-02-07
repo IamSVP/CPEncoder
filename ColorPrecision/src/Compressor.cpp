@@ -30,12 +30,30 @@ typedef std::basic_ofstream<unsigned char, std::char_traits<unsigned char> > uof
 namespace CPD{
 
 
-	void ExtractBlock(const uint32* inBuf, uint8* outPixels){
+	void ExtractBlock(const uint8* block, int BlockSz, uint8* decompressedBlock){
 
 
 	}
 
-	void DecompressImageCP(const uint8* blocks, int w, int h, int BlockSz);
+	void DecompressImageCP(const uint8* blocks, int w, int h, int BlockSz){
+
+		uint8* OutPixels = (uint8*)malloc(w* h * 4);
+
+		for (int j = 0; j < h; j+=4){
+			for (int i = 0; i < w; i+=4){
+
+				int blockNum = j * (w / 4) + i;
+				int blockOffset = blockNum * BlockSz;
+				uint8 * block;
+				
+
+
+			}
+		}
+
+
+
+	}
 
 
 }
