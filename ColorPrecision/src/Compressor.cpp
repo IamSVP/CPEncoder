@@ -77,12 +77,12 @@ namespace DXTC
   // 4-byte RGBA format. The width and height parameters specify the size of the image in pixels.
   // The buffer pointed to by outBuf should be large enough to store the compressed image. This
   // implementation has an 8:1 compression ratio.
-  void CompressImageDXT1(const FasTC::CompressionJob &cj) {
+  void CompressImageDXT1() {
     uint8 block[64];
     uint8 minColor[4];
     uint8 maxColor[4];
-
-    const uint32 kBlockSz = GetBlockSize(FasTC::eCompressionFormat_DXT1);
+	const uint32 kBlockSz = 16;
+    //const uint32 kBlockSz = GetBlockSize(FasTC::eCompressionFormat_DXT1);
     const uint32 startBlock = cj.CoordsToBlockIdx(cj.XStart(), cj.YStart());
     uint8 *outBuf = cj.OutBuf() + startBlock * kBlockSz;
 
