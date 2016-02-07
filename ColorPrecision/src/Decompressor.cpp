@@ -50,13 +50,11 @@
  * <http://gamma.cs.unc.edu/FasTC/>
  */
 
-#include "FasTC/CPCompressor.h"
-
+#include "CPEncoder\CPCompressor.h"
 #include <cassert>
 #include <cstdlib>
 #include <cstring>
 
-#include "FasTC/Pixel.h"
 
 namespace DXTC
 {
